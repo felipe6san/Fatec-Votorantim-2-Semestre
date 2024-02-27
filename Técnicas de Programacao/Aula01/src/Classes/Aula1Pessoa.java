@@ -17,18 +17,18 @@ public class Aula1Pessoa {
     public static void main(String[] args) {
 
         Pessoa pai;
-        pai = new Pessoa();
-        pai.nome = "Rodrigo";
+        pai = new Pessoa("Rodrigo","1237642");    
         pai.qntFilho = 2;
-        pai.qntIrmaos = 2;
         pai.nomeFilhos[0]="Maria";
         pai.nomeFilhos[1]="João";
         System.out.println(pai.Apresentar());
+        System.out.println("CPF Pai: " + pai.getCpf());
+        pai.setCpf("344443");
+        System.out.println("CPF Pai: " + pai.getCpf());
         System.out.println(pai.ApresentarFilhos());
 
         Pessoa mae;
-        mae = new Pessoa();
-        mae.nome = "Clara";
+        mae = new Pessoa("Maria","6666666");
         mae.qntFilho = 2;
         mae.qntIrmaos = 4;
         System.out.println(mae.Apresentar());
