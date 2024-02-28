@@ -25,7 +25,7 @@ Constraint FK_Cliente Foreign Key(Cod_Cli) References Cliente(Cod_Cli)
 )
 CRIAÇÂO TABELA NOTA FISCAL*/
 
-Create Table Cidade
+/*Create Table Cidade
 (
 Codcidade varchar(2) not null,
 Nomecidade varchar(40)
@@ -70,4 +70,4 @@ Add Primary Key (cdestado)
 Alter Table Cidade
 Add Foreign Key (Cid_Estado) References Estado (cdestado)
 
-Drop Table Empregado
+Drop Table Empregado*/
