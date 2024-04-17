@@ -154,3 +154,13 @@ where Funcionario.codSetor = Setor.codSetor
 select f.primeiroNome,f.salario, s.nomeSetor
 from Funcionario f, Setor s
 where f.codSetor = s.codSetor
+
+
+/*6a*/
+select distinct codSetor from Funcionario
+
+/*6b*/
+select ultimo_nome + ', ' + CONVERT(varchar, setor_cod) as 'Empregado e Setor' from Funcionario
+
+select * from Setor
+select * from Funcionario

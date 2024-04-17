@@ -1,0 +1,45 @@
+/****Exercicio 1****/
+create table Setor (
+codSetor int identity(1,1),
+nomeSetor varchar(30) not null,
+constraint PK_Setor Primary Key (codSetor));
+
+/****Exercicio 2-3****/
+create table Funcionario
+(
+nrmatricula int identity(1,1),
+primeiro_nome varchar(20),
+ultimo_nome varchar(50),
+email varchar(200),
+telefone varchar(20),
+data_admissao datetime,
+salario float,
+setor_cod int,
+constraint FK_Func_Cod_Setor Foreign Key(setor_cod) references Setor(cod_setor),
+constraint PK_Funcionario Primary key (nrmatricula)
+)
+
+/****Exercicio 4****/
+insert into Setor values
+('Demacia'),
+('Noxus'),
+('Freljord'),
+('Shurima'),
+('Piltover');
+
+/****Exercicio 5****/
+insert into Funcionario values
+('Darius', 'Noxus', 'darius@example.com', '123456789', '2022-01-15', 4000.00, 1),
+('Garen', 'Demacia', 'garen@example.com', '987654321', '2022-02-28', 3500.00, 1),
+('Katarina', 'Noxus', 'katarina@example.com', '456789123', '2022-03-10', 3200.00, 1),
+('Ashe', 'Freljord', 'ashe@example.com', '321654987', '2022-04-05', 3800.00, 4),
+('Azir', 'Shurima', 'azir@example.com', '789123456', '2022-05-20', 4200.00, 5),
+('Caitlyn', 'Piltover', 'caitlyn@example.com', '654987321', '2022-06-15', 4500.00, 5),
+('Jinx', 'Piltover', 'jinx@example.com', '123789456', '2022-07-02', 3000.00, 3),
+('Lux', 'Demacia', 'lux@example.com', '789456123', '2022-08-10', 3200.00, 3);
+
+/****Exercicio 6A****/
+select distinct codSetor from Funcionario
+
+/****Exercicio 6B****/
+select ultimoNome + ', ' + CONVERT(varchar, codSetor) as 'Empregado e Setor' from Funcionario
