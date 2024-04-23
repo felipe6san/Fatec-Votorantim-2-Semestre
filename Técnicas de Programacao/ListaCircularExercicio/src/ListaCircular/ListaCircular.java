@@ -1,5 +1,5 @@
 
-package Listas.ExercicioSub;
+package ListaCircular;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -7,13 +7,13 @@ import javax.swing.JOptionPane;
 
 public class ListaCircular extends javax.swing.JFrame {
 
-    ListaCircularDuplamenteLigada lista;
+    Ex_ListaCircularDuplamenteLigada lista;
     int indiceCorrente=0;
     
     public ListaCircular() {
         initComponents();
         
-        lista=new ListaCircularDuplamenteLigada();
+        lista=new Ex_ListaCircularDuplamenteLigada();
         
         for(int i=0;i<10;i++){
             lista.adicionar(i);
@@ -24,16 +24,16 @@ public class ListaCircular extends javax.swing.JFrame {
     }
 
     private void setLblQtd(){
-        lblQtdNos.setText("Qtd Nós: "+ lista.tamanho());
+        lblQtdNos.setText("Qtd Nós: "+ lista.getTamanhoLista());
     }
     private void carregaLista(){
         DefaultListModel modelo = new DefaultListModel();
-        for(int i=0;i<lista.tamanho();i++){        
+        for(int i=0;i<lista.getTamanhoLista();i++){        
             modelo.addElement(i+" - " + lista.getLista(i));
         }
         jList1.setModel(modelo);
         
-        txtbListaNos.setText(lista.imprimirLista());
+        txtbListaNos.setText(lista.imprimirLista("", lista.primeiroNo, 0));
     }
             
     
@@ -99,6 +99,11 @@ public class ListaCircular extends javax.swing.JFrame {
         txtbValor.setText("Hello World");
 
         btoAdicionar.setText("Adicionar");
+        btoAdicionar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btoAdicionarMouseClicked(evt);
+            }
+        });
         btoAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btoAdicionarActionPerformed(evt);
@@ -245,6 +250,10 @@ public class ListaCircular extends javax.swing.JFrame {
         }*/
         
     }//GEN-LAST:event_jList1MouseClicked
+
+    private void btoAdicionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btoAdicionarMouseClicked
+        lista.adicionar(txtbValor, Integer.parseInt(txtbIndice.getText()));
+    }//GEN-LAST:event_btoAdicionarMouseClicked
 
     /**
      * @param args the command line arguments
