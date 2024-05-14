@@ -16,7 +16,7 @@ public final class Fundamental extends Aluno{
 
     @Override
     public String getNota() {
-        if (nota >= 9.0) {
+        if (nota == 9.0 >= 10.0) {
             return "A";
         } 
         else if (nota >= 7.0) {
